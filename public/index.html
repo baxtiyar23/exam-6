@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Red Hat Mono', monospace;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+:root {
+  --bg-grey: rgb(250,250,250);
+  --border-grey: rgb(219,219,219);
+  --text-light-grey: rgb(142,142,142);
+  --text-dark-grey: rgb(38,38,38);
+  --accent-purple: rgb(123, 123, 123); 
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-grey);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-wrapper {
+  display: flex;
+  margin: 48px 0 32px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 32px;
+  color: var(--accent-purple);
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: x-large;
+  text-transform: uppercase;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.input-wrapper > input, .btn {
+  padding: 8px;
+  border: var(--border-grey) 1px solid;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: var(--accent-purple) 1px solid;
+}
+
+.btn {
+  min-width: 100px;
+  background-color: var(--accent-purple);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.occupancy {
+  margin: 16px 0;
+  text-align: center;
+  align-self: center;
+  table-layout: fixed;
+  width: 75%;
+  word-break: break-all;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--text-dark-grey);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tbody > tr {
+  color: var(--text-dark-grey);
+}
+
+td, th {
+  padding: 8px;
+  border: 1px var(--border-grey) solid;
+}
+
+button.remove {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.1s;
+  color: var(--text-dark-grey);
+}
+
+button.remove:hover {
+  transform: scale(1.1);
+  color: var(--accent-purple);
+}
+
+button.remove:focus {
+  outline: none;
+}
+td.options {
+    display: flex;
+    gap: 8px;
+  }
+
+  button.quit {
+    padding: 4px;
+    background-color: var(--accent-purple);
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  button.quit:hover {
+    background-color: #6c757d; /* Adjust the color as needed */
+  }
+</style>
+<body>
+    <div class="logo-wrapper">
+      <i class="fa-solid fa-car logo"></i>
+      <h1>Parking Lot Name</h1>
+    </div>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        id="carName"
+        placeholder="Vehicle's name"
+        autocomplete="off"
+      />
+      <input
+        type="text"
+        id="carCapacity"
+        placeholder="Capacity"
+        autocomplete="off"
+      />
+      <button id="register" class="btn">Register</button>
+    </div>
+
+	<table class="occupancy">
+		<thead>
+		  <tr>
+			<th>Name</th>
+			<th>Capacity</th>
+			<th>Arrival time</th>
+			<th>Price</th>
+			<th>Options</th>
+		  </tr>
+		</thead>
+		<tbody id="parkingOccupancy"></tbody>
+	  </table>
+    
+  </body>
+</html>
